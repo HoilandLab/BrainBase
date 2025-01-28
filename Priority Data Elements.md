@@ -17,9 +17,6 @@
 | Blood Chemistry | [study_blood_chemistry] | Whether blood chemistry was collected <br> *Radio, required* <br> *1 = ‘Yes’; 2 = ‘No’* |
 | Form Status | [study_information_complete] | Verify completion of the ‘Study Information’ form <br> *Dropdown* <br> *0 = ‘Incomplete’; 1 = ‘Unverified’; 2 = ‘Complete’* |
 <br> 
-<br> 
-<br> 
-<br>
 
 **Identifiable Information**
 <br> The below table outlines each of 4 the data fields (plus Form Status) contained in the Identifiable Information form on the REDCap database.
@@ -38,34 +35,45 @@
 | Age | [demo_age] | Participant’s age in years <br> *Text, required, validation: integer (Min 1)* |
 | Sex | [demo_sex] | Participant’s biological sex assigned at birth <br> *Radio, required* <br> *1 = ‘Male’; 2 = ‘Female’* |
 | Preferred gender | [demo_gender] | Participant’s preferred gender <br> *Radio, required* <br> *1 = ‘Man’; 2 = ‘Woman’; 3 = ‘Gender fluid’; 4 = ‘Genderqueer’; 5 = ‘Agender’; 6 = ‘Non-binary’; 7 = ‘Unsure’; 8 = ‘A gender not listed here’; 9 = ‘Prefer not to say’; 10 = ‘Transgender man’; 11 = ‘Transgender woman’* |
-|  |  |  <br> ** |
-|  |  |  <br> ** |
-|  |  |  <br> ** |
-|  |  |  <br> ** |
-|  |  |  <br> ** |
-|  |  |  <br> ** |
+| Specific gender | [demo_gender_specify] <br> Branched logic: shows field IF [demo_gender] = ‘A gender not listed here’ | Specify the participant’s preferred gender <br> *Text, required* |
+| Self-reported race/ethnicity | [demo_race_ethnicity] | Participant’s self-reported race/ethnicity <br> *Checkbox, required* <br> *‘Black or African American’, 1; ‘East Asian’, 2; ‘Indigenous’, 3; ‘Latin American’, 4; ‘Middle Eastern or North African’, 5; ‘South Asian’, 6; ‘Southeast Asian’, 7; ‘White’, 8; ‘A race or ethnic origin not listed here’, 9; ‘Prefer not to say’, 10* |
+| Specify race/ethnicity | [demo_race_ethnicity_specify] <br> Branched logic: shows field IF [demo_race_ethnicity] = ‘A race or ethnic origin not listed here’ | Specify the participant’s self-reported race/ethnicity <br> *Text, required* |
+| Estimated household income | [demo_household_income] | Participant’s estimated yearly household income in CAD <br> *Text, required, validation: number* |
+| Education History | [demo_education] | Select the highest level of education the participant has achieved  <br> *Radio, required* <br> *1 = ‘Elementary School’; 2 = ‘High School’; 3 = ‘Bachelor’s Degree’; 4= ‘Masters Degree’; 5 = ‘PhD’; 6 = ‘Professional Diploma’; 7 = ‘Unknown’*|
+| Form Status | [identifiable_information_complete] |  Verify completion of the ‘Study Information’ form <br> *Dropdown* <br> *0 = ‘Incomplete’; 1 = ‘Unverified’; 2 = ‘Complete’* |
 <br>
 
 **Anthropometrics**
 <br> The below table outlines each of 4 the data fields (plus Form Status) contained in the Anthropometrics form on the REDCap database.
 | Data Element | Field | Description |
 | :---: | :---: | --- |
-|  |  |  <br> ** |
+| Height | [anthro_height] | Participant’s height in centimetres <br> *Text, required, validation: number (1 decimal place)* |
+| Weight | [anthro_weight] | Participant’s weight in kilograms <br> *Text, required, validation: number (1 decimal place)* |
+| Body mass index | [anthro_bmi] | Participant’s body mass index in kg/m^2 <br> *Calculated, required* <br>*Calculation: round(([anthro_weight] / ([anthro_height])^(2))*10000, 1)* |
+| Waist circumference | [anthro_waist] | Participant’s waist circumference in centimeters <br> *Text, required, validation: number (1 decimal place)* |
+| Form Status | [identifiable_information_complete] |  Verify completion of the ‘Study Information’ form <br> *Dropdown* <br> *0 = ‘Incomplete’; 1 = ‘Unverified’; 2 = ‘Complete’* |
+<br>
 
 **Health History**
 <br> The below table outlines each of 30 the data fields (plus Form Status) contained in a table displayed in the Health History form on the REDCap database. 
 | Data Element | Field | Description |
 | :---: | :---: | --- |
 |  |  |  <br> ** |
+| Form Status | [identifiable_information_complete] |  Verify completion of the ‘Study Information’ form <br> *Dropdown* <br> *0 = ‘Incomplete’; 1 = ‘Unverified’; 2 = ‘Complete’* |
+<br>
 
 **Baseline Data**
 <br> The below table outlines each of 48 the data fields (plus Form Status) contained in the Baseline Data form on the REDCap database.
 | Data Element | Field | Description |
 | :---: | :---: | --- |
 |  |  |  <br> ** |
+| Form Status | [identifiable_information_complete] |  Verify completion of the ‘Study Information’ form <br> *Dropdown* <br> *0 = ‘Incomplete’; 1 = ‘Unverified’; 2 = ‘Complete’* |
+<br>
 
 **Neurovascular Coupling**
 <br> The below table outlines each of the 24 data fields (plus Form Status) contained in the Neurovascular Coupling form on the REDCap database.
 | Data Element | Field | Description |
 | :---: | :---: | --- |
 |  |  |  <br> ** |
+| Form Status | [identifiable_information_complete] |  Verify completion of the ‘Study Information’ form <br> *Dropdown* <br> *0 = ‘Incomplete’; 1 = ‘Unverified’; 2 = ‘Complete’* |
+<br>
