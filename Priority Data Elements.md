@@ -58,7 +58,31 @@
 <br> The below table outlines each of 30 the data fields (plus Form Status) contained in a table displayed in the Health History form on the REDCap database. 
 | Data Element | Field | Description |
 | :---: | :---: | --- |
-|  |  |  <br> ** |
+| History of respiratory disease | [history_resp] | Whether the patient has (has had) any respiratory diseases <br> *Checkbox, required* <br> *‘COPD’, 1; ‘Asthma’, 2; ‘Other’, 3; ‘None’, 4*|
+| Specify respiratory disease | [history_resp_specify] <br> Branched logic: shows field IF [history_resp] = ‘Other’ | Specify the participant’s respiratory disease <br> *Text, required* |
+| History of cardiovascular disease | [history_cardio] | Whether the patient has (has had) any cardiovascular diseases <br> *Checkbox, required* <br> *‘Heart failure’, 1; ‘Arrhythmias’, 2; ‘Hypertension’, 3; ‘Coronary artery disease’, 4; ‘Other’, 5; ‘None’, 6* |
+| Specify cardiovascular disease | [history_cardio_specify] <br> *Branched logic: shows field IF [history_cardio] = ‘Other’* | Specify the participant’s cardiovascular disease <br> *Text, required* |
+| History of neurological disease | [history_neuro] | Whether the patient has (has had) any neurological diseases <br> *Checkbox, required* <br> *‘Dementia’, 1; ‘Epilepsy’, 2; ‘Chronic migraines’, 3; ‘Parkinson’s’, 4; ‘Other’, 5; ‘None’, 6* |
+| Specify neurological disease | [history_neuro_specify] <br> *Branched logic: shows field IF [history_neuro] = ‘Other’* | Specify the participant’s neurological disease <br> *Text, required* |
+| History of acquired brain injury | [history_abi] | Whether the patient has (has had) an acquired brain injury <br> *Checkbox, required* <br> *‘Hypoxic ischaemic brain injury (post-cardiac arrest)’, 1; ‘Traumatic brain injury’, 2; ‘Subarachnoid hemorrhage’, 3; ‘Stroke/TIA’, 4; ‘Concussion’, 5; ‘Other’, 6; ‘None’, 7*|
+| Specify acquired brain injury | [history_abi_specify] <br>*Branched logic: shows field IF [history_abi] = ‘Other’* | Specify the participant’s acquired brain injury <br> *Text, required* |
+| History of metabolic disease | [history_metabolic] | Whether the patient has (has had) an acquired brain injury <br> *Checkbox, required* <br> *‘Type I diabetes’, 1; ‘Type II diabetes’, 2; ‘Other’, 3; ‘None’, 4* |
+| Specify metabolic disease | [history_metabolic_specify] <br> *Branched logic: shows field IF [history_metabolic] = ‘Other’* | Specify the participant’s acquired brain injury <br> *Text, required* |
+| History of gastro-intestinal disease | [history_gastro] | Whether the patient has (has had) a gastro-intestinal disease <br> *Checkbox, required* <br> *‘Sickle cell anemia’, 1; ‘Hemophilia’, 2; ‘Other’, 3; ‘None’, 4* |
+| Specify gastro-intestinal disease | [history_gastro_specify] <br> *Branched logic: shows field IF [history_gastro] = ‘Other’* | Specify the patient’s gastro-intestinal disease <br> *Text, required* |
+| History of syncopal conditions | [history_syncope] | Whether the patient has (has had) a syncopal condition <br> *Checkbox, required* <br> *‘Postural orthostatic tachycardia syndrome’, 1; ‘Other’, 2; ‘None’, 3* |
+| Specify syncopal condition | [history_syncope_specify] <br> *Branched logic: shows field IF [history_syncope] = ‘Other’* | Specify the patient’s syncopal condition <br> *Text, required* |
+| History of physical activity | [history_physical_activity] | Estimate weekly minutes of moderate-to-vigorous physical activity <br> *Text, required* |
+| History of smoking | [history_smoking] | Whether the patient smokes <br> *Checkbox, required* <br> *‘Tobacco’, 1; ‘E-cigarettes’, 2; ‘Marijuana’, 3; ‘Pure TCH’ , 4; ‘Other’, 5; ‘No’, 6* |
+| Specify smoking history | [history_smoking_specify] <br> *Branched logic: shows field IF [history_smoking] = ‘Other’* | Specify the patient’s smoking activity <br> *Text, required* |
+| Smoking frequency | [history_smoking_frequency] <br> *Branched logic: shows field IF [history_smoking] = ‘E-cigarettes’ OR ‘Marijuana’ OR ‘Pure THC’ OR ‘Other’* | Estimate the patient’s smoking frequency in days per week <br> *Text, required, validation: number* |
+| History of non-tobacco nicotine intake | [history_nt_nico] | Whether the patient consumes non-tobacco nicotine products <br> *Radio, required* <br> *1 = ‘Yes’; 2 = ‘No’* |
+| Specify non-tobacco nicotine history | [history_nt_nico_specify] <br> *Branched logic: shows field IF [history_nt_nico] = ‘Yes’* | Specify the patient’s non-tobacco nicotine product <br> *Text, required* |
+| Nicotine concentration | [history_nt_nico_concentration] <br> *Branched logic: shows field IF [history_nt_nico] = ‘Yes’* | Indicate the concentration of non-tobacco nicotine in milligrams <br> *Text, required, validation: number* |
+| History of edible cannabis | [history_edible_cannabis] | Whether the patient consumes edible cannabis products <br> *Radio, required* <br> *1 = ‘Yes’; 2 = ‘No’* |
+| Edible cannabis frequency | [history_edible_cannabis_frequency] <br> *Branched logic: shows field IF [history_edible_cannabis] = ‘Yes’* | Estimate consumption of edible cannabis frequency <br> *Text, required, validation: number* |
+| History of alcohol consumption | [history_alcohol] | Whether the patient consumes alcohol <br> *Radio, required* <br> *1 = ‘Yes’; 2 = ‘No’* |
+| Alcohol consumption frequency | [history_alcohol_frequency] <br> *Branched logic: shows field IF [history_alcohol] = ‘Yes’* | Estimate the patient’s weekly alcohol consumption in standard units <br> *Text, required, validation: number* |
 | Form Status | [identifiable_information_complete] |  Verify completion of the ‘Study Information’ form <br> *Dropdown* <br> *0 = ‘Incomplete’; 1 = ‘Unverified’; 2 = ‘Complete’* |
 <br>
 
@@ -66,7 +90,50 @@
 <br> The below table outlines each of 48 the data fields (plus Form Status) contained in the Baseline Data form on the REDCap database.
 | Data Element | Field | Description |
 | :---: | :---: | --- |
-|  |  |  <br> ** |
+| ICA Diameter Right | [bl_ica_diameter_r] | Diameter of right internal carotid artery in millimetres <br> *Text, required, validation: number (2 decimal places)* |
+| ICA Diameter Left | [bl_ica_diameter_l] | Diameter of left internal carotid artery in millimetres <br> *Text, required, validation: number (2 decimal places)* |
+| ICA Peak Velocity Right | [bl_icav_r] | Patient’s right ICA average peak envelope velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| ICA Peak Velocity Left | [bl_icav_l] | Patient’s left ICA average peak envelope velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| ICA Systolic Velocity Right | [bl_sys_icav_r] | Patient’s right ICA average systolic envelope velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| ICA Systolic Velocity Left | [bl_sys_icav_l] | Patient’s left ICA average systolic envelope velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| ICA Diastolic Velocity Right | [bl_dia_icav_r] | Patient’s right ICA average diastolic envelope velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| ICA Diastolic Velocity Left | [bl_dia_icav_l] | Patient’s left ICA average diastolic envelope velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| ICA Blood Flow Right | [bl_ica_flow_r] | Patient’s right ICA mean blood flow (millilitres/minute) <br> *Calculated* <br> *Calculation: round(3.14159265359*(([bl_ica_diameter_r]/2)/10)^(2)*[bl_icav_r]/2*60,2)*|
+| ICA Blood Flow Left | [bl_ica_flow_l] | Patient’s left ICA mean blood flow (millilitres/minute) <br> *Calculated* <br> *Calculation: round(3.14159265359*(([bl_ica_diameter_l]/2)/10)^(2)*[bl_icav_l]/2*60,2)* |
+| ICA Pulsatility Index Right | [bl_ica_pulsatility_r] | Patient’s right ICA pulsatility index <br> *Calculated* <br> *Calculation: round(([bl_sys_icav_r]-[bl_dia_icav_r])/[bl_icav_r], 2)* |
+| ICA Pulsatility Index Left | [bl_ica_pulsatility_l] | Patient’s left ICA pulsatility index <br> *Calculated* <br> *Calculation: round(([bl_sys_icav_l]-[bl_dia_icav_l])/[bl_icav_l], 2)* |
+| VA Diameter Right | [bl_va_diameter_r] | Patient’s right vertebral artery diameter <br> *Text, required, validation: number (2 decimal places)* |
+| VA Diameter Left | [bl_va_diameter_l] | Patient’s left vertebral artery diameter (millimetres) <br> *Text, required, validation: number (2 decimal places)* |
+| VA Mean Velocity Right | [bl_vav_r] | Patient’s right vertebral artery mean velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| VA Mean Velocity Left | [bl_vav_l] | Patient’s left vertebral artery mean velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| VA Systolic Velocity Right | [bl_sys_vav_r] | Patient’s right vertebral artery systolic envelope velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| VA Systolic Velocity Left | [bl_sys_vav_l] | Patient’s left vertebral artery systolic envelope velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| VA Diastolic Velocity Right | [bl_dia_vav_r] | Patient’s right vertebral artery diastolic envelope velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| VA Diastolic Velocity Left | [bl_dia_vav_l] | Patient’s left vertebral artery diastolic envelope velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| VA Blood Flow Right | [bl_va_flow_r] | Patient’s right vertebral artery blood flow (millilitres/minute) <br> *Calculated* <br> *round(3.14159265359*(([bl_va_diameter_r]/2)/10)^(2)*[bl_vav_r]/2*60,2)* |
+| VA Blood Flow Left | [bl_va_flow_l] | Patient’s left vertebral artery blood flow (millilitres/minute) <br> *Calculated* <br> *round(3.14159265359*(([bl_va_diameter_l]/2)/10)^(2)*[bl_vav_l]/2*60,2)*|
+| VA Pulsatility Index Right | [bl_va_pulsatility_r] | Patient’s right vertebral artery pulsatility index <br> *Calculated* <br> *Calculation: round(([bl_sys_vav_r]-[bl_dia_vav_r])/[bl_vav_r], 2)* |
+| VA Pulsatility Index Left | [bl_va_pulsatility_l] | Patient’s left vertebral artery pulsatility index <br> *Calculated* <br> *Calculation: round(([bl_sys_vav_l]-[bl_dia_vav_l])/[bl_vav_l], 2)* |
+| MCA Velocity | [bl_mcav] | Patient’s middle cerebral artery mean velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| MCA Systolic Velocity | [bl_sys_mcav] | Patient’s middle cerebral artery systolic envelope velocity <br> *Text, required, validation: number (1 decimal place)* |
+| MCA Diastolic Velocity | [bl_dia_mcav] | Patient’s middle cerebral artery diastolic envelope velocity <br> *Text, required, validation: number (1 decimal place)* |
+| MCA Pulsatility Index | [bl_mca_pulsatility] | Patient’s middle cerebral artery pulsatility index <br> *Calculated* <br> *Calculation: round(([bl_sys_mcav]-[bl_dia_mcav])/[bl_mcav], 2)* |
+| PCA Velocity | [bl_pcav] | Patient’s posterior cerebral artery mean velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| PCA Systolic Velocity | [bl_sys_pcav] | Patient’s posterior cerebral artery systolic envelope velocity <br> *Text, required, validation: number (1 decimal place)* |
+| PCA Diastolic Velocity | [bl_dia_pcav] | Patient’s posterior cerebral artery diastolic envelope velocity <br> *Text, required, validation: number (1 decimal place)* |
+| PCA Pulsatility Index | [bl_pca_pulsatility] | Patient’s posterior cerebral artery pulsatility index <br> *Calculated* <br> *Calculation: round(([bl_sys_pcav]-[bl_dia_pcav])/[bl_pcav], 2)* |
+| Resting Heart Rate | [bl_resting_hr] | Patient’s resting heart rate <br> *Text, required* |
+| Blood Pressure Systolic | [bl_sys_bp] | Patient’s systolic blood pressure <br> *Text, required* |
+| Blood Pressure Diastolic | [bl_dia_bp] | Patient’s diastolic blood pressure <br> *Text, required* |
+| Mean Arterial Pressure | [bl_map] | Patient’s mean arterial pressure (mmHg) <br> *Text, required, validation: number (1 decimal place)* |
+| End-Tidal Oxygen Tension | [bl_peto2] | Patient’s end-tidal oxygen tension (mmHg) <br> *Text, required, validation: number (1 decimal place)* |
+| End-Tidal Carbon Dioxide Tension | [bl_petco2] | Patient’s end-tidal carbon dioxide tension (mmHg) <br> *Text, required, validation: number (1 decimal place)* |
+| Saturation of Peripheral Oxygen | [bl_spo2] | Patient’s saturation of peripheral oxygen (%) <br> *Text, required, validation: number (1 decimal place)* |
+| MCA Side | [bl_mca_side] | Middle cerebral artery side <br> *Dropdown, required* <br> *1 = ‘Right’; 2 = ‘Left’; 3 = ‘Did not measure’* |
+| PCA Side | [bl_pca_side] | Posterior cerebral artery side <br> *Dropdown, required* <br> *1 = ‘Right’; 2 = ‘Left’; 3 = ‘Did not measure’* |
+| CCA IMT Right | [bl_imt_r] | Right common carotid artery intima-media thickness <br> *Text, required, validation: number (1 decimal place)* |
+| CCA IMT Left | [bl_imt_l] | Left common carotid artery intima-media thickness <br> *Text, required, validation: number (1 decimal place)* |
+| Baseline Data File | [bl_file_upload_csv] | Baseline Raw Data File (.csv) <br> *File* |
 | Form Status | [identifiable_information_complete] |  Verify completion of the ‘Study Information’ form <br> *Dropdown* <br> *0 = ‘Incomplete’; 1 = ‘Unverified’; 2 = ‘Complete’* |
 <br>
 
@@ -74,6 +141,29 @@
 <br> The below table outlines each of the 24 data fields (plus Form Status) contained in the Neurovascular Coupling form on the REDCap database.
 | Data Element | Field | Description |
 | :---: | :---: | --- |
-|  |  |  <br> ** |
+| NVC Baseline MAP | [nvc_bl_map] | NVC test baseline mean arterial pressure (mmHg) <br> *Text, required, validation: number (1 decimal place)* |
+| NVC End-Tidal Carbon Dioxide Tension | [nvc_bl_petco2] | NVC test end-tidal carbon dioxide tension <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Peak Delta MAP | [nvc_peak_delta_map] | NVC test peak delta mean arterial pressure (mmHg) <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Peak Delta PetCO2 | [nvc_peak_delta_petco2] | NVC test peak delta end-tidal carbon dioxide tension <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Mean Delta MAP | [nvc_mean_delta_map] | NVC test mean delta mean arterial pressure <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Mean Delta PetCO2 | [nvc_mean_delta_petco2] | NVC test mean delta end-tidal carbon dioxide tension <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Baseline MCA Velocity | [nvc_bl_mcav] | NVC middle cerebral artery velocity <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Baseline PCA Velocity | [nvc_bl_pcav] | NVC posterior cerebral artery velocity <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Peak Delta MCA Velocity | [nvc_peak_delta_mcav_abs] | NVC absolute peak change in middle cerebral artery velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Peak Delta PCA Velocity | [nvc_peak_delta_pcav_abs] | NVC absolute peak change in posterior cerebral artery velocity (cm/second) <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Peak Delta MCA | [nvc_peak_delta_mcav_rel] | NVC relative peak change in middle cerebral artery velocity (%) <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Peak Delta PCA | [nvc_peak_delta_pcav_rel] | NVC relative peak change in posterior cerebral artery velocity (%) <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Mean Delta MCA Velocity | [nvc_mean_delta_mcav_abs] | NVC mean delta middle cerebral artery velocity <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Mean Delta PCA Velocity | [nvc_mean_delta_pcav_abs] | NVC mean delta posterior cerebral artery velocity <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Mean Delta MCA | [nvc_mean_delta_mcav_rel] | NVC mean delta middle cerebral artery <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Mean Delta PCA | [nvc_mean_delta_pcav_rel] | NVC mean delta posterior cerebral artery <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Baseline PCA Velocity CVC | [nvc_bl_pcav_cvc] | NVC baseline posterior cerebral artery velocity cerebrovascular conductance <br> *Text, required, validation: number (2 decimal places)* |
+| NVC Peak Delta PCA Velocity CVC | [nvc_peak_delta_pcav_cvc] | NVC peak delta posterior cerebral artery velocity cerebrovascular conductance <br> *Text, required, validation: number (2 decimal places)* |
+| NVC Peak Delta PCA Velocity CVC % | [nvc_peak_delta_pcav_cvc_percent] | NVC peak delta posterior cerebral artery velocity cerebrovascular conductance <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Mean Delta PCA Velocity CVC | [nvc_mean_delta_pcav_cvc] | NVC mean delta posterior cerebral artery velocity cerebrovascular conductance <br> *Text, required, validation: number (2 decimal places)* |
+| NVC Mean Delta PCA Velocity CVC % | [nvc_mean_delta_pcav_cvc_percent] | NVC mean delta posterior cerebral artery velocity cerebrovascular conductance <br> *Text, required, validation: number (1 decimal place)* |
+| Time to peak PCAv | [nvc_ttp_pcav] | Time in seconds to the peak PCAv during the NVC stimulus <br> *Text, required, validation: number (1 decimal place)* |
+| Time to peak MCAv | [nvc_ttp_mcav] | Time in seconds to the peak MCAv during the NVC stimulus <br> *Text, required, validation: number (1 decimal place)* |
+| NVC Data File | [nvc_csv_file_upload] | NVC Raw Data File (.csv) <br> *File* |
 | Form Status | [identifiable_information_complete] |  Verify completion of the ‘Study Information’ form <br> *Dropdown* <br> *0 = ‘Incomplete’; 1 = ‘Unverified’; 2 = ‘Complete’* |
 <br>
